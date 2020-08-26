@@ -239,7 +239,8 @@ print("PYTHON VERSION: ",sys.version)
 file_name_to_lzc_value_dictionary = {}
 file_name_to_ace_value_dictionary = {}
 # specify the directory we are reading the files from
-data_input_path = "../../../data/Interp/"
+participant_type = "ze"
+data_input_path = "../../../data/Interp/" + participant_type + "/"
 #     read in data
 # (1) get a list of files in the directory of the interp data
 list_of_files = []
@@ -265,9 +266,9 @@ for file_name in list_of_files:
 # output that data to two csv files, for the ace and lzc respectively
 data_output_path = "../../../data/complexity/"
 lzc_df = pd.DataFrame(file_name_to_lzc_value_dictionary, columns = list_of_files)
-lzc_df.to_csv(data_output_path + "lzc_for_each_participant.csv", header = True, index = False)
-# ace_df = DataFrame(file_name_to_ace_value_dictionary, columns = list_of_files)
-# ace_df.to_csv(data_output_path + "ace_for_each_participant.csv", header = True, index = False)
+lzc_df.to_csv(data_output_path + participant_type + "_lzc_for_each_participant.csv", header = True, index = False)
+ace_df = pd.DataFrame(file_name_to_ace_value_dictionary, columns = list_of_files)
+ace_df.to_csv(data_output_path + participant_type + "_ace_for_each_participant.csv", header = True, index = False)
 
 
 
